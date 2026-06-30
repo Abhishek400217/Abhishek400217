@@ -76,12 +76,13 @@ ASP.NET Web Forms application for sales target tracking and reporting.
 </p>
 
 ---
+# 📊 GitHub Metrics
 
-# 🏆 GitHub Trophy
+<div align="center">
 
-<p align="center">
-<img src="https://github-profile-trophy.vercel.app/?username=Abhishek400217&theme=algolia&no-frame=true&row=1&column=6"/>
-</p>
+<img src="https://raw.githubusercontent.com/Abhishek400217/Abhishek400217/main/github-metrics.svg" width="65%" alt="GitHub Metrics"/>
+
+</div>
 
 ---
 

@@ -27,8 +27,8 @@ jobs:
           plugin_languages_indepth: yes
 
           plugin_isocalendar: yes
-          plugin_habits: yes
-          plugin_achievements: yes
+          # plugin_habits: yes
+          # plugin_achievements: yes
           plugin_lines: yes
 
           filename: github-metrics.svg

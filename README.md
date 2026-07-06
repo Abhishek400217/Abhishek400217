@@ -59,8 +59,8 @@ ASP.NET Web Forms application for sales target tracking and reporting.
 # 📈 GitHub Statistics
 
 <p align="center">
-  <img height="170" src="https://github-readme-stats.vercel.app/api?username=Abhishek400217&show_icons=true&theme=github_dark&hide_border=true&rank_icon=github"/>
-  <img height="170" src="https://streak-stats.demolab.com?user=Abhishek400217&theme=github-dark&hide_border=true"/>
+  <img height="170" src="https://github-readme-stats.vercel.app/api?username=Abhishek400217&show_icons=true&theme=github_dark&hide_border=true&cache_seconds=1800" />
+  <img height="170" src="https://streak-stats.demolab.com?user=Abhishek400217&theme=github-dark&hide_border=true" />
 </p>
 
 <p align="center">

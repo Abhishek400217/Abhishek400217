@@ -19,7 +19,7 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN }}
           user: Abhishek400217
 
-          template: classic
+          template: markdown
           base: header, activity, community, repositories, metadata
 
           plugin_languages: yes

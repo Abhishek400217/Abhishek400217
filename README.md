@@ -22,7 +22,7 @@
 - 💻 Java Full Stack Developer
 - 🚀 Passionate about building production-ready applications
 - 🌱 Currently learning Spring Boot, ASP.NET MVC, System Design and DSA
-
+- 📚 Exploring clean architecture and backend development
 ---
 
 # ⚙️ Tech Stack
@@ -54,6 +54,14 @@ Student management platform with dashboards, assignments and attendance.
 ## 📊 Target Report (.NET)
 ASP.NET Web Forms application for sales target tracking and reporting.
 
+---
+
+---
+### 🔗 Repositories
+
+- ⭐ TeenSpend Pro → https://github.com/Abhishek400217/TeenSpend-Pro
+- ⭐ Digital School Bag → https://github.com/Abhishek400217/Digital-School-Bag
+- ⭐ Target Report → Private Repository
 ---
 
 # 📈 GitHub Statistics
@@ -112,7 +120,7 @@ ASP.NET Web Forms application for sales target tracking and reporting.
 
 ---
 
-> *"Great software is built through continuous learning, clean architecture, and solving real-world problems."*
+> *"Code every day. Learn continuously. Build projects that solve real problems."*
 
 <div align="center">
 

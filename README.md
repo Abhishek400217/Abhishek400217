@@ -114,12 +114,9 @@ ASP.NET Web Forms application for sales target tracking and reporting.
 - Crack an SDE / Java Full Stack Developer role
 - Solve 300+ DSA problems
 - Master Spring Boot & Microservices
-- Learn Docker & AWS Fundamentals
-- Contribute to Open Source Projects
 - Build 5+ Production Ready Applications
 - Strengthen System Design knowledge
 - Maintain an active GitHub profile
-- Write technical blogs & documentation
 
 ---
 

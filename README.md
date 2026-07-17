@@ -111,11 +111,15 @@ ASP.NET Web Forms application for sales target tracking and reporting.
 
 # 🎯 2026 Goals
 
-- Build scalable Java Full Stack applications
-- Master Spring Boot ecosystem
-- Contribute to Open Source
-- Improve DSA & System Design
-- Become a Software Engineer
+- Crack an SDE / Java Full Stack Developer role
+- Solve 300+ DSA problems
+- Master Spring Boot & Microservices
+- Learn Docker & AWS Fundamentals
+- Contribute to Open Source Projects
+- Build 5+ Production Ready Applications
+- Strengthen System Design knowledge
+- Maintain an active GitHub profile
+- Write technical blogs & documentation
 
 ---
 

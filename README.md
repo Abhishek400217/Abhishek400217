@@ -65,12 +65,11 @@ ASP.NET Web Forms application for sales target tracking and reporting.
 ---
 ## 📚 Currently Learning
 
-- Java Multithreading
-- Spring Security
 - System Design
 - Microservices
 - Docker
 - DSA (LeetCode)
+  
 # 📈 GitHub Statistics
 
 <p align="center">
@@ -111,7 +110,7 @@ ASP.NET Web Forms application for sales target tracking and reporting.
 
 # 🎯 2026 Goals
 
-- Crack an SDE / Java Full Stack Developer role
+- Crack an SDE / Java Full Stack Developer role.
 - Solve 300+ DSA problems
 - Master Spring Boot & Microservices
 - Build 5+ Production Ready Applications

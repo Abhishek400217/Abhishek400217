@@ -63,7 +63,14 @@ ASP.NET Web Forms application for sales target tracking and reporting.
 - ⭐ Digital School Bag → https://github.com/Abhishek400217/Digital-School-Bag
 - ⭐ Target Report → Private Repository
 ---
+## 📚 Currently Learning
 
+- Java Multithreading
+- Spring Security
+- System Design
+- Microservices
+- Docker
+- DSA (LeetCode)
 # 📈 GitHub Statistics
 
 <p align="center">

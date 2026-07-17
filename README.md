@@ -136,9 +136,7 @@ ASP.NET Web Forms application for sales target tracking and reporting.
 
 ✔ Backend Development Opportunities
 
-✔ Open Source Collaboration
-
-✔ Internship / Full-Time Opportunities
+✔ Full-Time Opportunities
 > *"Code every day. Learn continuously. Build projects that solve real problems."*
 
 <div align="center">

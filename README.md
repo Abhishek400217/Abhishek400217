@@ -130,7 +130,15 @@ ASP.NET Web Forms application for sales target tracking and reporting.
 - 💻 GitHub: https://github.com/Abhishek400217
 
 ---
+## 💼 Looking For
 
+✔ Java Full Stack Developer Roles
+
+✔ Backend Development Opportunities
+
+✔ Open Source Collaboration
+
+✔ Internship / Full-Time Opportunities
 > *"Code every day. Learn continuously. Build projects that solve real problems."*
 
 <div align="center">

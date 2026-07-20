@@ -15,7 +15,7 @@
 
 ---
 
-# 💫 About Me
+# 💫 About Me 🤵
 
 - 🎓 B.Tech Information Technology Graduate (2026)
 - 🏫 KDK College of Engineering, Nagpur

@@ -19,7 +19,7 @@
 
 - 🎓 B.Tech Information Technology Graduate (2026)
 - 🏫 KDK College of Engineering, Nagpur
-- 💻 Java Full Stack Developer
+- 💻 Java Full Stack Developer | ASP.Net Developer
 - 🚀 Passionate about building production-ready applications
 - 🌱 Currently learning Spring Boot, ASP.NET MVC, System Design and DSA
 - 📚 Exploring clean architecture and backend development

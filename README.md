@@ -69,6 +69,7 @@ ASP.NET Web Forms application for sales target tracking and reporting.
 - Microservices
 - Docker
 - DSA (LeetCode)
+- ASP.NET Web API's
   
 # 📈 GitHub Statistics
 
@@ -113,8 +114,8 @@ ASP.NET Web Forms application for sales target tracking and reporting.
 - Crack an SDE / Java Full Stack Developer role.
 - Solve 300+ DSA problems
 - Master Spring Boot & Microservices
-- Build 5+ Production Ready Applications
-- Strengthen System Design knowledge
+- Build 5+ Enterprise Ready Applications
+- Strengthen System Design and Data Structure knowledge
 - Maintain an active GitHub profile
 
 ---
@@ -129,6 +130,8 @@ ASP.NET Web Forms application for sales target tracking and reporting.
 ## 💼 Looking For
 
 ✔ Java Full Stack Developer Roles
+
+✔ Software Developer Roles
 
 ✔ Backend Development Opportunities
 

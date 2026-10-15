@@ -87,7 +87,11 @@ ASP.NET Web Forms application for sales target tracking and reporting.
 # 📊 Contribution Graph
 
 <p align="center">
-  <img src="https://YOUR-OWN-VERCEL-DOMAIN.vercel.app/graph?username=Abhishek400217&theme=github-dark&hide_border=true&area=true" alt="GitHub Activity Graph"/>
+  <img
+    src="https://github-readme-activity-graph.vercel.app/graph?username=Abhishek400217&theme=github-compact&hide_border=true&area=true"
+    alt="Abhishek's GitHub Activity Graph"
+    width="100%"
+  />
 </p>
 
 ---

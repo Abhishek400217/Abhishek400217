@@ -21,7 +21,7 @@
 - 🏫 KDK College of Engineering, Nagpur
 - 💻 Java Full Stack Developer | ASP.NET Developer
 - 🚀 Passionate about building production-ready applications
-- 🌱 Currently learning ASP.NET MVC, ASP.NET Web API's, System Design and DSA
+- 🌱 Currently learning ASP.NET MVC, ASP.NET Web APIs, System Design and DSA
 - 📚 Exploring clean architecture and backend development
 ---
 
@@ -69,7 +69,7 @@ ASP.NET Web Forms application for sales target tracking and reporting.
 - Microservices
 - Docker
 - DSA (LeetCode)
-- ASP.NET Web API's
+- ASP.NET Web APIs
   
 # 📈 GitHub Statistics
 

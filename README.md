@@ -27,19 +27,83 @@
 
 # ⚙️ Tech Stack
 
-### Languages
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+Technologies used across my full-stack web applications, .NET projects, database projects, and desktop development work.
 
-### Frameworks & Tools
+### 💻 Programming Languages
 
-<img src="https://skillicons.dev/icons?i=spring,react,maven,git,github,vscode,idea,visualstudio,postman" />
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=java,cs,c,js,html,css&theme=dark&perline=6" alt="Java, C sharp, C, JavaScript, HTML and CSS" />
+</p>
 
-### Databases
+### 🎨 Frontend Development
 
-SQL Server • MySQL • Oracle SQL
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=react,vite,tailwind,bootstrap,jquery&theme=dark&perline=5" alt="React, Vite, Tailwind CSS, Bootstrap and jQuery" />
+</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white" alt="Axios" />
+  <img src="https://img.shields.io/badge/Razor%20Views-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" alt="Razor Views" />
+</p>
+
+### ⚙️ Backend, Frameworks & Desktop Development
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=spring,dotnet&theme=dark&perline=4" alt="Spring and .NET" />
+</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=spring&logoColor=white" alt="Spring Boot" />
+  <img src="https://img.shields.io/badge/Spring%20Security-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white" alt="Spring Security" />
+  <img src="https://img.shields.io/badge/Spring%20Data%20JPA-6DB33F?style=for-the-badge&logo=spring&logoColor=white" alt="Spring Data JPA" />
+  <img src="https://img.shields.io/badge/ASP.NET%20Core-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" alt="ASP.NET Core" />
+  <img src="https://img.shields.io/badge/ASP.NET%20MVC%205-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" alt="ASP.NET MVC 5" />
+  <img src="https://img.shields.io/badge/ASP.NET%20Web%20API-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" alt="ASP.NET Web API" />
+  <img src="https://img.shields.io/badge/ASP.NET%20Web%20Forms-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" alt="ASP.NET Web Forms" />
+  <img src="https://img.shields.io/badge/Entity%20Framework%20Core-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" alt="Entity Framework Core" />
+  <img src="https://img.shields.io/badge/ADO.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" alt="ADO.NET" />
+  <img src="https://img.shields.io/badge/Java%20Swing-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java Swing" />
+  <img src="https://img.shields.io/badge/Windows%20Forms-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows Forms" />
+  <img src="https://img.shields.io/badge/WPF-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows Presentation Foundation" />
+</p>
+
+### 🗄️ Databases & Data Access
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=mysql&theme=dark" alt="MySQL" />
+  <img src="https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white" alt="Microsoft SQL Server" />
+  <img src="https://img.shields.io/badge/Oracle%20Database-F80000?style=for-the-badge&logo=oracle&logoColor=white" alt="Oracle Database" />
+  <img src="https://img.shields.io/badge/Oracle%20SQL-F80000?style=for-the-badge&logo=oracle&logoColor=white" alt="Oracle SQL" />
+  <img src="https://img.shields.io/badge/Microsoft%20Access-A4373A?style=for-the-badge&logo=microsoftaccess&logoColor=white" alt="Microsoft Access" />
+</p>
+
+### 🎥 Computer Vision, Video & Application Libraries
+
+<p align="center">
+  <img src="https://img.shields.io/badge/LibVLCSharp-FF8800?style=for-the-badge&logo=vlcmediaplayer&logoColor=white" alt="LibVLCSharp" />
+  <img src="https://img.shields.io/badge/OpenCvSharp-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" alt="OpenCvSharp" />
+  <img src="https://img.shields.io/badge/ONNX%20Runtime-005CED?style=for-the-badge&logo=onnx&logoColor=white" alt="ONNX Runtime" />
+  <img src="https://img.shields.io/badge/YOLO-111111?style=for-the-badge&logo=ultralytics&logoColor=white" alt="YOLO" />
+  <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white" alt="JSON Web Tokens" />
+  <img src="https://img.shields.io/badge/Swagger%20%2F%20OpenAPI-85EA2D?style=for-the-badge&logo=swagger&logoColor=black" alt="Swagger and OpenAPI" />
+</p>
+
+### 🧰 Developer Tools & IDEs
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=git,github,vscode,visualstudio,idea,postman&theme=dark&perline=6" alt="Git, GitHub, VS Code, Visual Studio, IntelliJ IDEA and Postman" />
+</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white" alt="Apache Maven" />
+  <img src="https://img.shields.io/badge/MySQL%20Workbench-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL Workbench" />
+  <img src="https://img.shields.io/badge/Oracle%20SQL%20Developer-F80000?style=for-the-badge&logo=oracle&logoColor=white" alt="Oracle SQL Developer" />
+</p>
+
+### ☁️ Deployment & Platforms
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=vercel&theme=dark" alt="Vercel" />
+  <img src="https://img.shields.io/badge/Railway-0B0D0E?style=for-the-badge&logo=railway&logoColor=white" alt="Railway" />
+  <img src="https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Pages" />
+</p>
 
 ---
 

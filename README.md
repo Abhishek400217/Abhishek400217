@@ -75,17 +75,6 @@ Technologies used across my full-stack web applications, .NET projects, database
   <img src="https://img.shields.io/badge/Microsoft%20Access-A4373A?style=for-the-badge&logo=microsoftaccess&logoColor=white" alt="Microsoft Access" />
 </p>
 
-### 🎥 Computer Vision, Video & Application Libraries
-
-<p align="center">
-  <img src="https://img.shields.io/badge/LibVLCSharp-FF8800?style=for-the-badge&logo=vlcmediaplayer&logoColor=white" alt="LibVLCSharp" />
-  <img src="https://img.shields.io/badge/OpenCvSharp-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" alt="OpenCvSharp" />
-  <img src="https://img.shields.io/badge/ONNX%20Runtime-005CED?style=for-the-badge&logo=onnx&logoColor=white" alt="ONNX Runtime" />
-  <img src="https://img.shields.io/badge/YOLO-111111?style=for-the-badge&logo=ultralytics&logoColor=white" alt="YOLO" />
-  <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white" alt="JSON Web Tokens" />
-  <img src="https://img.shields.io/badge/Swagger%20%2F%20OpenAPI-85EA2D?style=for-the-badge&logo=swagger&logoColor=black" alt="Swagger and OpenAPI" />
-</p>
-
 ### 🧰 Developer Tools & IDEs
 
 <p align="center">
@@ -95,14 +84,6 @@ Technologies used across my full-stack web applications, .NET projects, database
   <img src="https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white" alt="Apache Maven" />
   <img src="https://img.shields.io/badge/MySQL%20Workbench-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL Workbench" />
   <img src="https://img.shields.io/badge/Oracle%20SQL%20Developer-F80000?style=for-the-badge&logo=oracle&logoColor=white" alt="Oracle SQL Developer" />
-</p>
-
-### ☁️ Deployment & Platforms
-
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=vercel&theme=dark" alt="Vercel" />
-  <img src="https://img.shields.io/badge/Railway-0B0D0E?style=for-the-badge&logo=railway&logoColor=white" alt="Railway" />
-  <img src="https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Pages" />
 </p>
 
 ---

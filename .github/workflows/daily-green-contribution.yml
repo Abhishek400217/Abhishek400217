@@ -1,23 +1,19 @@
-name: Daily Green Contribution
+name: Daily Profile Activity
 
 on:
-  push:
-    paths:
-      - ".github/workflows/daily-green-contribution.yml"
   schedule:
-    - cron: "13 0 * * *"
+    - cron: "37 16 * * *"
       timezone: "Asia/Kolkata"
-  workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: daily-green-contribution
+  group: daily-profile-activity
   cancel-in-progress: false
 
 jobs:
-  daily-commit:
+  daily-activity:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
@@ -25,18 +21,84 @@ jobs:
       - name: Checkout profile repository
         uses: actions/checkout@v4
 
-      - name: Create an empty daily commit
+      - name: Record automation activity and prepare tomorrow's randomized run
         env:
           GIT_AUTHOR_NAME: Abhishek Karande
           GIT_AUTHOR_EMAIL: 155272902+Abhishek400217@users.noreply.github.com
           GIT_COMMITTER_NAME: Abhishek Karande
           GIT_COMMITTER_EMAIL: 155272902+Abhishek400217@users.noreply.github.com
         run: |
+          set -euo pipefail
+
           git config user.name "$GIT_AUTHOR_NAME"
           git config user.email "$GIT_AUTHOR_EMAIL"
 
+          python3 <<'PY'
+          from datetime import datetime, timedelta
+          from pathlib import Path
+          from secrets import randbelow
+          from zoneinfo import ZoneInfo
+          import os
+          import re
+
+          tz = ZoneInfo("Asia/Kolkata")
+          now = datetime.now(tz)
+
+          # Choose tomorrow's run time uniformly from 14:00 through 17:59 IST.
+          next_day = now.date() + timedelta(days=1)
+          minute_of_day = (14 * 60) + randbelow(4 * 60)
+          next_hour, next_minute = divmod(minute_of_day, 60)
+          next_cron = f"{next_minute} {next_hour} * * *"
+
+          workflow_path = Path(".github/workflows/daily-green-contribution.yml")
+          workflow = workflow_path.read_text(encoding="utf-8")
+          updated, replacements = re.subn(
+              r'(?m)^(\s*-\s*cron:\s*)["\'][^"\']+["\']\s*$',
+              lambda match: f'{match.group(1)}"{next_cron}"',
+              workflow,
+              count=1,
+          )
+          if replacements != 1:
+              raise SystemExit("Could not safely update the workflow cron expression.")
+          workflow_path.write_text(updated, encoding="utf-8")
+
+          commit_count = randbelow(9) + 1
+          log_path = Path(".github/daily-activity.log")
+          log_path.parent.mkdir(parents=True, exist_ok=True)
+          if not log_path.exists():
+              log_path.write_text(
+                  "# Automated profile activity log\n"
+                  "# This records scheduled automation runs, not coding tasks.\n",
+                  encoding="utf-8",
+              )
+
+          log_line = (
+              f"- {now:%Y-%m-%d %H:%M:%S} IST — automated profile run; "
+              f"{commit_count} commit(s) generated; next scheduled window: "
+              f"{next_day:%Y-%m-%d} at {next_hour:02d}:{next_minute:02d} IST.\n"
+          )
+          with log_path.open("a", encoding="utf-8") as log_file:
+              log_file.write(log_line)
+
+          with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as env_file:
+              env_file.write(f"COMMIT_COUNT={commit_count}\n")
+
+          print(f"Today's automated commits: {commit_count}")
+          print(f"Next run: {next_day} at {next_hour:02d}:{next_minute:02d} IST")
+          PY
+
+          git add .github/workflows/daily-green-contribution.yml .github/daily-activity.log
+
           COMMIT_DATE="$(TZ=Asia/Kolkata date '+%Y-%m-%d %H:%M:%S %z')"
           GIT_AUTHOR_DATE="$COMMIT_DATE" GIT_COMMITTER_DATE="$COMMIT_DATE" \
-            git commit --allow-empty -m "chore: automated daily activity heartbeat"
+            git commit -m "chore: automated daily profile activity log"
+
+          if [ "$COMMIT_COUNT" -gt 1 ]; then
+            for i in $(seq 2 "$COMMIT_COUNT"); do
+              GIT_AUTHOR_DATE="$COMMIT_DATE" GIT_COMMITTER_DATE="$COMMIT_DATE" \
+                git commit --allow-empty \
+                  -m "chore: automated profile heartbeat ($i/$COMMIT_COUNT)"
+            done
+          fi
 
           git push origin "HEAD:${GITHUB_REF_NAME}"

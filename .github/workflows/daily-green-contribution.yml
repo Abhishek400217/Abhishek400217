@@ -2,7 +2,13 @@ name: Weekly Profile Activity
 
 on:
   schedule:
-    - cron: "37 16 17 11 *"
+    - cron: "23 14 * * 2"
+      timezone: "Asia/Kolkata"
+    - cron: "48 15 * * 3"
+      timezone: "Asia/Kolkata"
+    - cron: "07 17 * * 5"
+      timezone: "Asia/Kolkata"
+    - cron: "36 16 * * 0"
       timezone: "Asia/Kolkata"
 
 permissions:
@@ -21,7 +27,7 @@ jobs:
       - name: Checkout profile repository
         uses: actions/checkout@v4
 
-      - name: Record one transparent activity entry and schedule the next selected day
+      - name: Record one transparent activity entry and schedule next week's days
         env:
           GIT_AUTHOR_NAME: Abhishek Karande
           GIT_AUTHOR_EMAIL: 155272902+Abhishek400217@users.noreply.github.com
@@ -44,26 +50,49 @@ jobs:
           tz = ZoneInfo("Asia/Kolkata")
           now = datetime.now(tz)
           run_date = now.date()
+          current_week_start = run_date - timedelta(days=run_date.weekday())
 
           state_path = Path(".github/daily-activity-state.json")
           log_path = Path(".github/daily-activity.log")
           workflow_path = Path(".github/workflows/daily-green-contribution.yml")
+          workflow = workflow_path.read_text(encoding="utf-8")
 
-          # On the first run, count today as day 1 and choose three more
-          # distinct days from the remaining days of this same Monday-Sunday week.
+          def dates_from_current_week(schedule_text, monday):
+              cron_values = re.findall(
+                  r'(?m)^\s*-\s*cron:\s*["\']([^"\']+)["\']\s*$',
+                  schedule_text,
+              )
+              if len(cron_values) != 4:
+                  raise SystemExit("Expected exactly four weekly schedule entries.")
+              selected = []
+              for expression in cron_values:
+                  fields = expression.split()
+                  if len(fields) != 5 or fields[2] != "*" or fields[3] != "*":
+                      raise SystemExit("Unexpected cron format; refusing to alter schedule.")
+                  weekday = int(fields[4])
+                  if weekday < 0 or weekday > 6:
+                      raise SystemExit("Unexpected weekday value in cron schedule.")
+                  python_weekday = (weekday + 6) % 7  # cron Sunday=0 -> Python Sunday=6
+                  selected.append(monday + timedelta(days=python_weekday))
+              if len(set(selected)) != 4:
+                  raise SystemExit("The four schedule entries must use distinct weekdays.")
+              return sorted(selected)
+
           if state_path.exists():
               state = json.loads(state_path.read_text(encoding="utf-8"))
+              saved_week = date.fromisoformat(state["week_start"])
+              if saved_week != current_week_start:
+                  # Recover cleanly if a prior week's scheduled event was missed.
+                  selected_days = dates_from_current_week(workflow, current_week_start)
+                  state = {
+                      "week_start": current_week_start.isoformat(),
+                      "planned_dates": [day.isoformat() for day in selected_days],
+                      "completed_dates": [],
+                  }
           else:
-              week_start = run_date - timedelta(days=run_date.weekday())
-              future_days = [
-                  week_start + timedelta(days=offset)
-                  for offset in range(run_date.weekday() + 1, 7)
-              ]
-              if len(future_days) < 3:
-                  raise SystemExit("Not enough days left this week to initialize four runs.")
-              selected_days = sorted([run_date] + sample(future_days, 3))
+              selected_days = dates_from_current_week(workflow, current_week_start)
               state = {
-                  "week_start": week_start.isoformat(),
+                  "week_start": current_week_start.isoformat(),
                   "planned_dates": [day.isoformat() for day in selected_days],
                   "completed_dates": [],
               }
@@ -75,62 +104,46 @@ jobs:
 
           if today_text not in planned_dates:
               raise SystemExit(
-                  f"Today's date {today_text} is not in the saved weekly schedule; "
-                  "stopping rather than creating an unscheduled entry."
+                  f"{today_text} is not one of this week's four selected days."
               )
 
           completed_dates.add(today_text)
           run_number = len(completed_dates)
 
           if run_number == 4:
-              # Select four new, distinct days in the following Monday-Sunday week.
               next_week_start = week_start + timedelta(days=7)
               next_week_days = [
                   next_week_start + timedelta(days=offset) for offset in range(7)
               ]
               next_planned = sorted(sample(next_week_days, 4))
-              next_date = next_planned[0]
+
+              new_crons = []
+              for selected_day in next_planned:
+                  minute_of_day = (14 * 60) + randbelow(4 * 60)
+                  hour, minute = divmod(minute_of_day, 60)
+                  cron_weekday = (selected_day.weekday() + 1) % 7
+                  new_crons.append(f"{minute} {hour} * * {cron_weekday}")
+
+              replacements_iter = iter(new_crons)
+              updated, replacements = re.subn(
+                  r'(?m)^(\s*-\s*cron:\s*)["\'][^"\']+["\']\s*$',
+                  lambda match: f'{match.group(1)}"{next(replacements_iter)}"',
+                  workflow,
+                  count=4,
+              )
+              if replacements != 4:
+                  raise SystemExit("Could not safely update all four weekly schedules.")
+              workflow_path.write_text(updated, encoding="utf-8")
+
               state = {
                   "week_start": next_week_start.isoformat(),
                   "planned_dates": [day.isoformat() for day in next_planned],
                   "completed_dates": [],
               }
-              log_schedule_note = (
-                  f"weekly target completed (4/4); next week's first planned run: "
-                  f"{next_date:%Y-%m-%d}"
-              )
+              schedule_note = "weekly target completed (4/4); next week's four days randomized"
           else:
-              future_planned = sorted(
-                  date.fromisoformat(day)
-                  for day in planned_dates
-                  if day not in completed_dates and date.fromisoformat(day) > run_date
-              )
-              if not future_planned:
-                  raise SystemExit("No remaining planned run found for this week.")
-              next_date = future_planned[0]
               state["completed_dates"] = sorted(completed_dates)
-              log_schedule_note = (
-                  f"weekly automated run {run_number}/4; "
-                  f"next planned run: {next_date:%Y-%m-%d}"
-              )
-
-          # Randomize each selected run's time between 14:00 and 17:59 IST.
-          minute_of_day = (14 * 60) + randbelow(4 * 60)
-          next_hour, next_minute = divmod(minute_of_day, 60)
-          next_cron = (
-              f"{next_minute} {next_hour} {next_date.day} {next_date.month} *"
-          )
-
-          workflow = workflow_path.read_text(encoding="utf-8")
-          updated, replacements = re.subn(
-              r'(?m)^(\s*-\s*cron:\s*)["\'][^"\']+["\']\s*$',
-              lambda match: f'{match.group(1)}"{next_cron}"',
-              workflow,
-              count=1,
-          )
-          if replacements != 1:
-              raise SystemExit("Could not safely update the scheduled cron expression.")
-          workflow_path.write_text(updated, encoding="utf-8")
+              schedule_note = f"weekly automated run {run_number}/4"
 
           state_path.write_text(
               json.dumps(state, indent=2) + "\n",
@@ -147,15 +160,10 @@ jobs:
           with log_path.open("a", encoding="utf-8") as log_file:
               log_file.write(
                   f"- {now:%Y-%m-%d %H:%M:%S} IST — automated profile activity; "
-                  f"{log_schedule_note}; next run time randomized within "
-                  "14:00–17:59 IST.\n"
+                  f"{schedule_note}.\n"
               )
 
           print(f"Completed scheduled run {run_number}/4 for week of {week_start}.")
-          print(
-              f"Next run: {next_date:%Y-%m-%d} at "
-              f"{next_hour:02d}:{next_minute:02d} IST"
-          )
           PY
 
           git add .github/workflows/daily-green-contribution.yml \

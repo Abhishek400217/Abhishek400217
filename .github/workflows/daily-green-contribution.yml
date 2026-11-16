@@ -1,6 +1,9 @@
 name: Daily Green Contribution
 
 on:
+  push:
+    paths:
+      - ".github/workflows/daily-green-contribution.yml"
   schedule:
     - cron: "13 0 * * *"
       timezone: "Asia/Kolkata"

@@ -144,7 +144,7 @@ ASP.NET Web Forms application for sales target tracking and reporting.
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/Abhishek400217/Abhishek400217/main/github-metrics.svg?v=8" width="65%">
+<img src="https://raw.githubusercontent.com/Abhishek400217/Abhishek400217/main/github-metrics.svg?v=7" width="65%">
 
 </div>
  

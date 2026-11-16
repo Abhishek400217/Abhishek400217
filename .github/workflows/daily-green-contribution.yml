@@ -72,13 +72,13 @@ jobs:
                   encoding="utf-8",
               )
 
-          log_line = (
-              f"- {now:%Y-%m-%d %H:%M:%S} IST — automated profile run; "
-              f"{commit_count} commit(s) generated; next scheduled window: "
+          first_log_line = (
+              f"- {now:%Y-%m-%d %H:%M:%S} IST — automated profile activity "
+              f"entry 1/{commit_count}; next run scheduled for "
               f"{next_day:%Y-%m-%d} at {next_hour:02d}:{next_minute:02d} IST.\n"
           )
           with log_path.open("a", encoding="utf-8") as log_file:
-              log_file.write(log_line)
+              log_file.write(first_log_line)
 
           with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as env_file:
               env_file.write(f"COMMIT_COUNT={commit_count}\n")
@@ -95,13 +95,17 @@ jobs:
 
           COMMIT_DATE="$(TZ=Asia/Kolkata date '+%Y-%m-%d %H:%M:%S %z')"
           GIT_AUTHOR_DATE="$COMMIT_DATE" GIT_COMMITTER_DATE="$COMMIT_DATE" \
-            git commit -m "chore: automated daily profile activity log"
+            git commit -m "chore: automated profile activity log (1/$COMMIT_COUNT)"
 
           if [ "$COMMIT_COUNT" -gt 1 ]; then
             for i in $(seq 2 "$COMMIT_COUNT"); do
+              printf -- "- %s IST — automated profile activity entry %s/%s.\n" \
+                "$(TZ=Asia/Kolkata date '+%Y-%m-%d %H:%M:%S')" "$i" "$COMMIT_COUNT" \
+                >> .github/daily-activity.log
+              git add .github/daily-activity.log
+              COMMIT_DATE="$(TZ=Asia/Kolkata date '+%Y-%m-%d %H:%M:%S %z')"
               GIT_AUTHOR_DATE="$COMMIT_DATE" GIT_COMMITTER_DATE="$COMMIT_DATE" \
-                git commit --allow-empty \
-                  -m "chore: automated profile heartbeat ($i/$COMMIT_COUNT)"
+                git commit -m "chore: automated profile activity log ($i/$COMMIT_COUNT)"
             done
           fi
 

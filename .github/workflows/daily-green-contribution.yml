@@ -60,7 +60,7 @@ jobs:
 
           def dates_from_current_week(schedule_text, monday):
               cron_values = re.findall(
-                  r'(?m)^\\s*-\\s*cron:\\s*["\\']([^"\\']+)["\\']\\s*$',
+                  r'(?m)^\s*-\s*cron:\s*["\']([^"\']+)["\']\s*$',
                   schedule_text,
               )
               if len(cron_values) != 4:
@@ -126,7 +126,7 @@ jobs:
 
               replacements_iter = iter(new_crons)
               updated, replacements = re.subn(
-                  r'(?m)^(\\s*-\\s*cron:\\s*)["\\'][^"\\']+["\\']\\s*$',
+                  r'(?m)^(\s*-\s*cron:\s*)["\'][^"\']+["\']\s*$',
                   lambda match: f'{match.group(1)}"{next(replacements_iter)}"',
                   workflow,
                   count=4,
@@ -149,25 +149,25 @@ jobs:
           commit_count = randbelow(9) + 1
 
           state_path.write_text(
-              json.dumps(state, indent=2) + "\\n",
+              json.dumps(state, indent=2) + "\n",
               encoding="utf-8",
           )
 
           if not log_path.exists():
               log_path.write_text(
-                  "# Automated profile activity log\\n"
-                  "# Entries record scheduled automation, not coding tasks.\\n",
+                  "# Automated profile activity log\n"
+                  "# Entries record scheduled automation, not coding tasks.\n",
                   encoding="utf-8",
               )
 
           with log_path.open("a", encoding="utf-8") as log_file:
               log_file.write(
                   f"- {now:%Y-%m-%d %H:%M:%S} IST — automated profile activity; "
-                  f"{schedule_note}; {commit_count} automated commit(s) in this run.\\n"
+                  f"{schedule_note}; {commit_count} automated commit(s) in this run.\n"
               )
 
           with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as env_file:
-              env_file.write(f"COMMIT_COUNT={commit_count}\\n")
+              env_file.write(f"COMMIT_COUNT={commit_count}\n")
 
           print(
               f"Scheduled run {run_number}/4; generated {commit_count} "
@@ -178,20 +178,20 @@ jobs:
           # Make the per-run total available to the remainder of this same shell step.
           source "$GITHUB_ENV"
 
-          git add .github/workflows/daily-green-contribution.yml \\
-                  .github/daily-activity.log \\
+          git add .github/workflows/daily-green-contribution.yml \
+                  .github/daily-activity.log \
                   .github/daily-activity-state.json
 
           COMMIT_DATE="$(TZ=Asia/Kolkata date '+%Y-%m-%d %H:%M:%S %z')"
-          GIT_AUTHOR_DATE="$COMMIT_DATE" GIT_COMMITTER_DATE="$COMMIT_DATE" \\
+          GIT_AUTHOR_DATE="$COMMIT_DATE" GIT_COMMITTER_DATE="$COMMIT_DATE" \
             git commit -m "chore: automated profile activity (1/$COMMIT_COUNT)"
 
           if [ "$COMMIT_COUNT" -gt 1 ]; then
             for i in $(seq 2 "$COMMIT_COUNT"); do
-              GIT_AUTHOR_DATE="$COMMIT_DATE" GIT_COMMITTER_DATE="$COMMIT_DATE" \\
-                git commit --allow-empty \\
+              GIT_AUTHOR_DATE="$COMMIT_DATE" GIT_COMMITTER_DATE="$COMMIT_DATE" \
+                git commit --allow-empty \
                   -m "chore: automated profile heartbeat ($i/$COMMIT_COUNT)"
             done
           fi
 
-          git push origin "HEAD:${GITHUB_REF_NAME}"
+          git push origin "HEAD:$GITHUB_REF_NAME"

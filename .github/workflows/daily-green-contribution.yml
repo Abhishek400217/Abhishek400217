@@ -87,6 +87,10 @@ jobs:
           print(f"Next run: {next_day} at {next_hour:02d}:{next_minute:02d} IST")
           PY
 
+          # GITHUB_ENV is applied to later steps by Actions; source it here because
+          # this script intentionally keeps the commit sequence in one step.
+          source "$GITHUB_ENV"
+
           git add .github/workflows/daily-green-contribution.yml .github/daily-activity.log
 
           COMMIT_DATE="$(TZ=Asia/Kolkata date '+%Y-%m-%d %H:%M:%S %z')"

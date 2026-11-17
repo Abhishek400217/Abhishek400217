@@ -147,14 +147,6 @@ ASP.NET Web Forms application for sales target tracking and reporting.
 <img src="https://raw.githubusercontent.com/Abhishek400217/Abhishek400217/main/github-metrics.svg?v=7" width="65%">
 
 </div>
- 
----
-
-# 👀 Visitor Counter
-
-<p align="center">
-<img src="https://komarev.com/ghpvc/?username=Abhishek400217&label=Profile%20Views&style=for-the-badge"/>
-</p>
 
 ---
 

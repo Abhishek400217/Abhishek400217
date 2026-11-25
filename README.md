@@ -164,7 +164,6 @@ ASP.NET Web Forms application for sales target tracking and reporting.
 
 - 🌐 Portfolio: https://abhishek-karande-portfolio.vercel.app/
 - 📧 Email: Abhishekkarande17@gmail.com
-- 💻 GitHub: https://github.com/Abhishek400217
 
 ---
 ## 💼 Looking For

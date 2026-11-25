@@ -9,7 +9,6 @@
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-Visit-238636?style=for-the-badge)](https://abhishek400217.github.io/Portfolio_Website/)
 [![Email](https://img.shields.io/badge/Email-Contact-1F6FEB?style=for-the-badge)](mailto:Abhishekkarande17@gmail.com)
-[![GitHub](https://img.shields.io/badge/GitHub-Abhishek400217-181717?style=for-the-badge&logo=github)](https://github.com/Abhishek400217)
 
 </div>
 
